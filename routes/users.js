@@ -1,9 +1,20 @@
 var express = require('express');
 var router = express.Router();
+const users = require('../models/User')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('users', { title: 'Users' });
-});
+// GET /api/products
+router.get(`/`, (req, res) => {
+	users.find({})
+		.exec()
+		.then(users => {
+			// res.index.sendRest(products)
+			res.render("users" ,{
+				userList: users
+			})
+		})
+		.catch(err => {
+			res.index.sendRest(err)
+		})
+})
 
 module.exports = router;

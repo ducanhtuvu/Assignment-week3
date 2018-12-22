@@ -65,7 +65,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> Categories</h1>
+                        <h1 class="page-header"> Products</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -79,15 +79,21 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Name</th>
-                                            <th>Description</th>
+                                            <th>Thumbnail</th>
+                                            <th>categoryId</th>
+                                            <th>salePrice</th>
+                                            <th>originalPrice</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    for category in categoriesList
+                                    for product in productdetail
                                         <tr>
-                                            <td>###</td>
-                                            <td>#{category.name}</td>
-                                            <td>#{category.descriptions}</td>
+                                            <td>#{product.id}</td>
+                                            <td>#{product.name}</td>
+                                            <td><img src="#{product.thumbnail}"/> </td>
+                                            <td>#{product.categoryId}</td>
+                                            <td>#{product.salePrice}</td>
+                                            <td>#{product.originalPrice}</td>
                                         </tr>
                                     </tbody>
                                 </table>
