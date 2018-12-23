@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const Product = require('../models/Product')
 
+
+
 // GET /api/products
 router.get('/', (req, res) => {
 	Product.find({})
@@ -15,20 +17,19 @@ router.get('/', (req, res) => {
 		.catch(err => {
 			res.index.sendRest(err)
 		})
-})
+});
 
 router.get(`/products/:id`, (req, res) => {
-	const id = req.params.id;
-	Product.findById(id)
+	const id = req.params._id;
+	Product.findbyId(id)
 	.exec()
-	.then((Product) =>{
-		res.index.sendRest(products)
-		/*
+	.then((product) =>{
 		res.render("productDetail" ,{
-			productdetail: Product
-		}) */      
+			productdetail: product
+		})      
 	})
 	.catch((err)=>{
+		console.log('asdasd');
 	    res.sendRest(err);
 	})
   });
