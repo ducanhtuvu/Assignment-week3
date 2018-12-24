@@ -19,9 +19,9 @@ router.get('/', (req, res) => {
 		})
 });
 
-router.get(`/products/:id`, (req, res) => {
-	const id = req.params._id;
-	Product.findbyId(id)
+router.get(`/:id`, (req, res) => {
+	const id = req.params.id;
+	Product.findById(id)
 	.exec()
 	.then((product) =>{
 		res.render("productDetail" ,{
@@ -29,7 +29,6 @@ router.get(`/products/:id`, (req, res) => {
 		})      
 	})
 	.catch((err)=>{
-		console.log('asdasd');
 	    res.sendRest(err);
 	})
   });

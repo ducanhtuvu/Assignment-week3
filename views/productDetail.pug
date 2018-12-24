@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Product Detail</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -77,25 +77,30 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>Name</th>
-                                            <th>Thumbnail</th>
-                                            <th>categoryId</th>
-                                            <th>salePrice</th>
-                                            <th>originalPrice</th>
+                                            <td>No.</td>
+                                            <td>#{productdetail._id}</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Name</td>
+                                            <td>#{productdetail.name}</td>
+                                            </tr>
+                                            <tr>
+                                            <td>Thumbnail</td>
+                                            <td> <img src="#{productdetail.thumbnail}"/> </td>
+                                            </tr>
+                                            <tr>
+                                            <td>Category</td>
+                                            <td>#{productdetail.category}</td>
+                                            </tr>
+                                            <tr>
+                                            <td>SalePrice</td>
+                                            <td>#{productdetail.salePrice}</td>
+                                            </tr>
+                                            <tr>
+                                            <td>OriginalPrice</td>
+                                            <td>#{productdetail.originalPrice}</td>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    for product in productdetail
-                                        <tr>
-                                            <td>#{product.id}</td>
-                                            <td>#{product.name}</td>
-                                            <td><img src="#{product.thumbnail}"/> </td>
-                                            <td>#{product.categoryId}</td>
-                                            <td>#{product.salePrice}</td>
-                                            <td>#{product.originalPrice}</td>
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
