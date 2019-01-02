@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 const Product = require('../models/Product')
 
-// GET (get all)
-router.get(`/`, (req, res) => {
+router.get('/create', function(req, res) {
+	res.render('productform');
+});
+router.get(`:`, (req, res) => {
 	const searchString = JSON.parse(req.query.filter);
 	const salePrices = JSON.stringify(searchString['where']['salePrice']);
 	const offset = searchString['offset'];
@@ -25,9 +27,6 @@ router.get(`/`, (req, res) => {
 		res.index.sendRest(err)
 	})
 });
-
-
-
 	// GET (get all)
 	router.get(`/`, (req, res) => {
 		Product.find({})
@@ -46,14 +45,15 @@ router.get(`/`, (req, res) => {
 	// POST (create)
 	router.post(`/`, (req, res) => {
 	    Product.create(req.body)
-	    .then((newProduct) =>{
-		  res.sendRest(newProduct);
-	    })
+	    .then((product) =>{
+		res.render("productDetail" ,{
+			productdetail: product
+		})
+	})      
 	    .catch((err)=>{
 		  res.sendRest(err);
 	    })
 	});
-  
 	// GET (get one)
 	router.get(`/:id`, (req, res) => {
 		const id = req.params.id;
@@ -100,6 +100,7 @@ router.get(`/`, (req, res) => {
 	    })
 	});
 
+	
 
   module.exports = router;
 
